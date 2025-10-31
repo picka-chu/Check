@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: simple-telegram-bot
+    env: python
+    region: frankfurt  # or any region you prefer
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn bot:app
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
